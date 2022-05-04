@@ -1,0 +1,220 @@
+.App{
+  
+}
+.home{
+  background: url(assets/teacher.jpg);
+  font-family: Arial;
+  background-position: center;
+  background-repeat: no-repeat;
+  bottom: 0px;
+}
+.left-head{
+  position: relative;
+  height:200px;
+  border-right:15px solid rgba(172, 125, 108, 0.568);
+  border-bottom: 15px solid rgba(172, 125, 108, 0.568);
+  z-index: 1;
+}
+.center-head{
+  position: relative;
+  height:200px;
+  border-right:15px solid rgba(172, 125, 108, 0.568);
+  border-left:15px solid rgba(172, 125, 108, 0.568);
+  border-bottom: 15px solid rgba(172, 125, 108, 0.568);
+  z-index: 1;
+}
+.center-head .answer{
+  border: 1px solid rgb(39, 36, 36);
+}
+.right-head{
+  position: relative;
+  height:200px;
+  border-left:15px solid rgba(172, 125, 108, 0.568);
+  border-bottom: 15px solid rgba(172, 125, 108, 0.568);
+  z-index: 1;
+}
+.button-link{
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 0px;
+  z-index: 1;
+}
+.buttons{
+  z-index: 1;
+}
+.opac{
+  background: rgba(255, 255, 255, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+}
+
+
+/* admin login styling*/
+
+.admin_login_head{
+  border: 2px solid rgb(39, 36, 36);
+  display: inline-block;
+  text-align: center;
+  padding: 15px;
+}
+.head_div{
+  text-align: center;
+}
+.admin_box{
+  width: 50%;
+  height: 80%;
+  background: white;
+  margin: 0 auto;
+  margin-top: 50px;
+  box-shadow: 1px 1px 15px gray;
+  text-align: center;
+}
+.signup_box{
+  width: 50%;
+  height: 700px;
+  background: white;
+  margin: 0 auto;
+  margin-top: 50px;
+  box-shadow: 1px 1px 15px gray;
+  text-align: center;
+}
+.update_box{
+  width: 50%;
+  height: 80%;
+  background: white;
+  margin: 0 auto;
+  margin-top: 50px;
+  box-shadow: 1px 1px 15px #6186a7;
+  text-align: center;
+}
+.admin_box .input_forms{
+  width: 80%;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+.signup_box .input_forms{
+  width: 80%;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+.update_box .input_forms{
+  width: 80%;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+.submit_button{
+  border:0px;
+  border-radius: 3px;
+  /* color: rgb(12, 177, 216); */
+  box-shadow: 0px 4px 6px gray;
+}
+.back_icon{
+  padding-bottom: 40px;
+  text-decoration: none;
+}
+.success{
+  box-shadow: 1px 1px 10px green;
+}
+.error{
+  box-shadow: 1px 1px 10px red;
+}
+.option_buttons a{
+  z-index: 1;
+  box-shadow: 0px 4px 6px rgb(153, 170, 180);
+  border: 0px;
+}
+
+/* admin_dashboard */
+ul .active{
+  font-weight: bold;
+  background: white;
+  color: black !important;
+}
+
+/* parent_dashboard */
+.parent_nav ul .active{
+  font-weight: bold;
+  background: white;
+  color: black !important;
+}
+
+.parent_d table{
+  width: 95%;
+  text-align: center;
+  margin: auto;
+  font-size: small;
+  border-bottom: 1px solid black;
+}
+.parent_d th{
+  padding: 15px;
+  background: rgb(66, 66, 66);
+  border: 1px solid rgb(255, 253, 253);
+  color: white;
+  border-bottom: 1px solid black;
+  text-align: left;
+}
+.parent_d td{
+  padding: 15px;
+  border: 1px solid rgb(206, 204, 204);
+  border-bottom: 0px ;
+  text-align: left;
+}
+
+/* tutor_dashboard */
+.tutor_d ul .active{
+  font-weight: bold;
+  background: white;
+  color: black !important;
+}
+.tutor_d table{
+  width: 95%;
+  text-align: center;
+  margin: auto;
+  font-size: small;
+  border-bottom: 1px solid black;
+}
+.tutor_d th{
+  padding: 15px;
+  background: rgb(109, 108, 108);
+  border: 1px solid rgb(255, 253, 253);
+  color: white;
+  border-bottom: 1px solid black;
+  text-align: left;
+}
+.tutor_d td{
+  padding: 15px;
+  border: 1px solid rgb(206, 204, 204);
+  border-bottom: 0px ;
+  text-align: left;
+}
+.tutor_d tr:nth-child(even){
+  background: rgb(240, 236, 236);
+}
+.tutor_d tr:nth-child(odd){
+  background: rgb(255, 255, 255);
+}
+.tutor_d .search input{
+  height: 35px;
+  border: 1px solid rgb(143, 138, 138);
+  width: 300px;
+  border-radius: 4px;
+  box-shadow: 1px 1px 5px rgb(196, 189, 189) inset;
+}
+.tutor_d .search-icon{
+  border-radius: 2px;
+  padding: 20px;
+}
+.tutor_d .search-icon i{
+   padding: 8px;
+   padding-top: 5px;
+   padding-bottom: 5px;
+}
