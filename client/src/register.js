@@ -8,15 +8,15 @@ import { Link } from 'react-router-dom';
 const Register = () => {
 
     const [form, setForm] = useState({
-        name: "",
+        username: "",
         email: "",
         password: "",
         useAs: ""
     });
-    const  navigate = useHistory();
+    const  history = useHistory();
 
     const validationSchema = Yup.object().shape({
-        name: Yup.string()
+        username: Yup.string()
         .min(2, "Username Should have atleast 2 characters...")
         .required("Required"),
         email: Yup.string()
@@ -28,29 +28,108 @@ const Register = () => {
         useAs: Yup.string()
         .required("Required")
     });
+      
 
     const onSubmit = regUser => {
-        axios.post(
-            "http://localhost:5000/record/add", regUser
-        )
-        .then(res => {
-            if (res.status === 200){
-                if (regUser.useAs === "Admin"){
-                    navigate.push('/admin_login');
-                    alert('User successfully registered')
-                }else if (regUser.useAs === "Parent"){
-                    navigate.push('/parent_login');
-                    alert('User successfully registered')
-                }else if (regUser.useAs === "Tutor"){
-                    navigate.push('/tutor_login');
+
+        //admin
+        if(regUser.useAs === "Admin"){
+            axios.get("http://localhost:5000/admin/users")
+        .then(respond => {
+            axios.post(
+                "http://localhost:5000/admin/register", regUser
+            )
+            .then(res => {
+                if (res.status === 200){
+                    const userExist = respond.data;
+                    const userFound = userExist.find((user, index) => {
+                        if(user.username === regUser.username || user.email === regUser.email){
+                            return true;
+                        }
+                    })
+
+                    if(userFound){
+                        alert("Username or E-mail already exists. Please input a new Username or E-mail...");
+                    }else{
+                        alert("Successful Registration");
+                        history.push("/admin_login")
+                    }
+                }else {
+                    Promise.reject("No way near");
                 }
-            }else {
-                Promise.reject();
-            }
-        }).catch(err => alert('Something went wrong'))
+            }).catch(err => alert('Something went wrong'))
+        })
+        }
+
+        //parent
+        if(regUser.useAs === "Parent"){
+            axios.get("http://localhost:5000/parent/users")
+        .then(respond => {
+            axios.post(
+                "http://localhost:5000/parent/register", regUser
+            )
+            .then(res => {
+                if (res.status === 200){
+                    const userExist = respond.data;
+                    const userFound = userExist.find((user, index) => {
+                        if(user.username === regUser.username || user.email === regUser.email){
+                            return true;
+                        }
+                    })
+
+                    if(userFound){
+                        alert("Username or E-mail already exists. Please input a new Username or E-mail...");
+                    }else{
+                        alert("Successful Registration");
+                        history.push("/parent_login")
+                    }
+                }else {
+                    Promise.reject("No way near");
+                }
+            }).catch(err => alert('Something went wrong'))
+        })
+        }
+
+        if(regUser.useAs === "Tutor"){
+            axios.get("http://localhost:5000/tutor/users")
+        .then(respond => {
+            axios.post(
+                "http://localhost:5000/tutor/register", regUser
+            )
+            .then(res => {
+                if (res.status === 200){
+                    const userExist = respond.data;
+                    const userFound = userExist.find((user, index) => {
+                        if(user.username === regUser.username || user.email === regUser.email){
+                            return true;
+                        }
+                    })
+
+                    if(userFound){
+                        alert("Username or E-mail already exists. Please input a new Username or E-mail...");
+                    }else{
+                        alert("Successful Registration");
+                        history.push("/tutor_login")
+                    }
+                }else {
+                    Promise.reject("No way near");
+                }
+            }).catch(err => alert('Something went wrong'))
+        })
+        }
         
-        
+    
     }
+    
+    useEffect(() => {
+        fetch("http://localhost:5000/parent/isUserAuth", {
+            headers:{
+                "x-access-token": localStorage.getItem("token")
+            }
+        })
+        .then(res => res.json())
+        .then(data => data.isLoggedIn ? history.push("/parent_routes"): null)
+    }, [])
 
     return ( 
         <div className="form-wrapper register">
@@ -68,11 +147,11 @@ const Register = () => {
                     <Form className="admin_login_form">
 
                             <Field 
-                            name="name" type="text" 
+                            name="username" type="text" 
                             className="pl-2 input_forms" 
                             placeholder="Full Names..." />
                             <ErrorMessage 
-                            name="name" 
+                            name="username" 
                             className="d-block invalid-feedback" 
                             component="span" />
                         

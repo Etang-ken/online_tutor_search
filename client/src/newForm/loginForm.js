@@ -1,59 +1,60 @@
 import React, { useState, useEffect } from 'react';
 import * as Yup from 'yup';
-import axios from 'axios';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useParams, useHistory } from "react-router";
 import { Link } from 'react-router-dom';
 
-const Register = () => {
+const LogIn = () => {
 
     const [form, setForm] = useState({
-        username: "",
+        email: "",
         password: ""
     });
-    const  history = useHistory();
-    const params = useParams();
 
     const validationSchema = Yup.object().shape({
         username: Yup.string()
-        .min(2, "Password Should have atleast 4 characters...")
+        .min(2, "You username must contain atleast 2 character...")
         .required("Required"),
         password: Yup.string()
         .min(4, "Password Should have atleast 4 characters...")
         .required("Required")
     });
 
-    const onSubmit = logUser => {
-        axios.post(
-            "http://localhost:5000/parent/login", logUser
-        )
-        .then(res => {
-            console.log(res.data)
-            return res.data;
+    const  history = useHistory();
+    const params = useParams();
+
+    function handleLogin(e) {
+        e.preventDefault();
+
+        const form = e.target
+        const user = {
+            username: form[0].value,
+            password: form[1].value
+        }
+
+        fetch("http://localhost:5000/login", {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(user)
         })
+        .then(res => res.json())
         .then(data => {
-            localStorage.setItem('token', data.token)
-            if(data.message === "Success"){
-                alert("LogIn Successful...");
-                history.push("/parent_routes")
-            } else {
-                alert(data.message)
-            }
-        }).catch(err => console.log(err))
-        
-        
+            localStorage.setItem("token", data.token)
+        })
     }
 
     useEffect(() => {
-        fetch("http://localhost:5000/parent/isUserAuth", {
+        fetch("http://localhost:5000/isUserAuth", {
             headers:{
                 "x-access-token": localStorage.getItem("token")
             }
         })
         .then(res => res.json())
         .then(data => data.isLoggedIn ? history.push("/parent_routes"): null)
-        .catch(err => console.log(err))
     }, [])
+
 
     return ( 
         <div className="form-wrapper parent_login">
@@ -67,8 +68,8 @@ const Register = () => {
                     <h4 className="display-7 pt-5">Parent</h4>
                     <br/>
 
-                <Formik initialValues={form} onSubmit={onSubmit} enableReinitialize validationSchema={validationSchema}>
-                    <Form className="admin_login_form">  
+                <Formik initialValues={form} enableReinitialize validationSchema={validationSchema}>
+                    <Form onSubmit={e =>handleLogin(e)} className="admin_login_form">  
 
                             <Field 
                             name="username" 
@@ -127,4 +128,4 @@ const Register = () => {
     )
 };
 
-export default Register;
+export default LogIn;

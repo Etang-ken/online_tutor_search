@@ -5,7 +5,7 @@ import MockTest from './mock_test';
 import ParentNav from './parent_nav';
 import ParentHome from './p_home';
 import Ratings from './ratings';
-import RequestDemo from './request_demo';
+import ViewTutor from './view_tutors';
 
 const ParentRouter = () => {
     return ( 
@@ -29,8 +29,8 @@ const ParentRouter = () => {
                         <Route path="/parent_routes/ratings">
                             <Ratings/>
                         </Route>
-                        <Route path="/parent_routes/request_demo">
-                            <RequestDemo/>
+                        <Route path="/parent_routes/view_tutor">
+                            <ViewTutor />
                         </Route>
                         </Switch>
                     </div>

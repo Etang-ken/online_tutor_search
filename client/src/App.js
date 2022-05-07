@@ -1,9 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import Home from './home';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import AdminLogin from './admin_login';
-import ParentLogin from './newForm/registerForm';
+import ParentLogin from './parent_login';
 import TutorLogin from './tutor_login';
 import Register from './register';
 

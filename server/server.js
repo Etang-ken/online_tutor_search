@@ -8,7 +8,9 @@ require("dotenv").config({ path: "./config.env" });
 
 const port = process.env.PORT || 5000;
 
-const authRoute = require('./routes/authRoutes')
+const adminRoute = require('./routes/admin');
+const parentRoute = require('./routes/parent');
+const tutorRoute = require('./routes/tutor');
 
 const urlencodedParser = bodyParser.urlencoded({ extended: false});
 app.use(bodyParser.json(), urlencodedParser);
@@ -16,7 +18,9 @@ app.use(bodyParser.json(), urlencodedParser);
 app.use(cors());
 app.use(express.json());
 app.use(require("./routes/record"));
-app.use(authRoute)
+app.use(adminRoute);
+app.use(parentRoute);
+app.use(tutorRoute);
 
 const dbURI = 'mongodb://127.0.0.1:27017/regs'
 mongoose.connect(dbURI, { useNewUrlParser:true, useUnifiedTopology:true })

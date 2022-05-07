@@ -19,7 +19,7 @@ const ParentNav = () => {
                                 <Link to="/parent_routes/book$demo" className="nav-link mx-1"> Request a Demo and Book </Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/parent_routes/request_demo" className="nav-link mx-1"> Request Demo </Link>
+                                <Link to="/parent_routes/view_tutor" className="nav-link mx-1"> View Tutor </Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/parent_routes/appoint_tutor"  className="nav-link mx-1" aria-current="page"> Appointed Tutor </Link>

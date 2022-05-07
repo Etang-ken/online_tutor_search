@@ -7,7 +7,7 @@ const AdminNav = () => {
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                     <div className="container-fluid">
                         <Link to="/" className="navbar-brand mx-5">Tuton</Link>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#parentNavbar" arial-controls="parentNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#parentNavbar" arial-controls="parentNavbar" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
                         <div className="collapse navbar-collapse" id="parentNavbar">
@@ -19,7 +19,7 @@ const AdminNav = () => {
                                 <li className="nav-item">
                                     <Link to="/admin_routes/manage_mock" className="nav-link mx-1"> Manage Mock Test </Link>
                                 </li>
-                                <li class="nav-item">
+                                <li className="nav-item">
                                     <Link to="/admin_routes/view_parents" className="nav-link mx-1" aria-current="page"> View Parents </Link>
                                 </li>
                                 <li className="nav-item">
