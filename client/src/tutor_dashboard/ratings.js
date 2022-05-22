@@ -1,4 +1,4 @@
-const Ratings = () => {
+const TutorRatings = () => {
     return ( 
         <div className="ratings">
             
@@ -6,7 +6,7 @@ const Ratings = () => {
      );
 }
  
-export default Ratings;
+export default TutorRatings;
 <div className="ratings">
     
 </div>

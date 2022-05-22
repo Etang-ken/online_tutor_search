@@ -84,3 +84,60 @@ exports.login = (req, res) => {
         })
     })
 }
+
+
+//get single user
+exports.getUser = async (req, res, next) => {
+        
+    try {
+        const user = await User.findById(req.params.id);
+        res.send(user);
+    next();
+    } catch (err) {
+        return next(`There is no customer with the id ${req.params.id}`)
+            
+    }
+    
+};
+
+//update parent
+exports.updateParent = (req, res, next) => {
+    const book = req.body;
+       User.findOneAndUpdate(
+        {_id: req.params.id},
+        { $addToSet: { booked: book.tutor }},
+        function (err, result) {
+            if(err){
+                res.send(err)
+            } else {
+                res.send(result);
+                console.log(book)
+            }
+        }
+    )
+}
+
+    //remove booked tutor
+    //update parent
+exports.removeTutor = (req, res, next) => {
+    const book = req.body;
+       User.findOneAndUpdate(
+        {_id: req.params.id},
+        { $pull: { booked: book.tutor }},
+        function (err, result) {
+            if(err){
+                res.send(err)
+            } else {
+                res.send(result);
+                console.log(book)
+            }
+        }
+    )
+}
+    // try{
+    //     const user = await User.findOneAndUpdate({ _id: req.params.id}, req.body );
+    //     res.sendStatus(200);
+    // } catch (err) {
+    //     return `There is no customer with the id ${req.params.id}`;
+    // }
+// };

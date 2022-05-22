@@ -28,14 +28,35 @@ const TutorLogIn = () => {
             "http://localhost:5000/tutor/login", logUser
         )
         .then(res => {
-            console.log(res.data)
+            // const userFound = userExist.find((user, index) => {
+            //     if(user.username === regUser.username || user.email === regUser.email){
+            //         return true;
+            //     })
+            console.log(res)
             return res.data;
+           
         })
         .then(data => {
+           console.log(data)
             localStorage.setItem('token', data.token)
             if(data.message === "Success"){
-                alert("LogIn Successful...");
-                history.push("/tutor_routes")
+                console.log(data)
+                axios.get("http://localhost:5000/tutor/users")
+                .then(newData => {
+                    console.log(newData.data)
+                    const userValues = newData.data;
+                    let id = "";
+                    const userFound = userValues.find(newUser => {
+                        if(newUser.username === logUser.username){
+                            id = newUser._id;
+                            return id = newUser._id.toString();
+                        }
+                    })
+                    alert("LogIn Successful...");
+                    history.push(`/t_my_profile/${id}`)
+                })
+                
+                
             } else {
                 alert(data.message)
             }

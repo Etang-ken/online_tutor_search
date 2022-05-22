@@ -14,22 +14,22 @@ const ParentRouter = () => {
                 <ParentNav/>
                     <div className="content3">
                         <Switch>
-                        <Route exact path="/parent_routes/p_home">
+                        <Route exact path="/parent_routes/p_home/:id">
                             <ParentHome/>
                         </Route>
-                        <Route path="/parent_routes/appoint_tutor">
+                        <Route path="/parent_routes/appoint_tutor/:id">
                             <AppointTutor/>
                         </Route>
-                        <Route path="/parent_routes/booksndemo">
+                        <Route path="/parent_routes/booksndemo/:id">
                             <BooksNDemo/>
                         </Route>
-                        <Route path="/parent_routes/mock_test">
+                        <Route path="/parent_routes/mock_test/:id">
                             <MockTest/>
                         </Route>
-                        <Route path="/parent_routes/ratings">
+                        <Route path="/parent_routes/ratings/:id">
                             <Ratings/>
                         </Route>
-                        <Route path="/parent_routes/view_tutor">
+                        <Route path="/parent_routes/view_tutor/:id">
                             <ViewTutor />
                         </Route>
                         </Switch>

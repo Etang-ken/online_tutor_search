@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom';
+import { Link,useParams } from 'react-router-dom';
 
 const AdminNav = () => {
+    const params = useParams();
     return ( 
         <div className="admin_nav">
 
@@ -14,16 +15,16 @@ const AdminNav = () => {
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
                                 <li className="nav-item">
-                                    <Link to="/admin_routes/manage_tutor" className=" active nav-link mx-1"> Manage Tutor </Link>
+                                    <Link to={`/a_manage_tutor/${params.id}`} className=" active nav-link mx-1"> Manage Tutor </Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to="/admin_routes/manage_mock" className="nav-link mx-1"> Manage Mock Test </Link>
+                                    <Link to={`/a_manage_mock/${params.id}`} className="nav-link mx-1"> Manage Mock Test </Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to="/admin_routes/view_parents" className="nav-link mx-1" aria-current="page"> View Parents </Link>
+                                    <Link to={`/a_view_parents/${params.id}`} className="nav-link mx-1" aria-current="page"> View Parents </Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to="/admin_routes/view_appointments"  className="nav-link mx-1"> View Appointments </Link>
+                                    <Link to={`/a_view_appointment/${params.id}`} className="nav-link mx-1"> View Appointments </Link>
                                 </li>
                                 
                             </ul>

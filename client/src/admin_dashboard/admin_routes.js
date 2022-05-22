@@ -12,16 +12,16 @@ const AdminRoutes = () => {
             <AdminNav/>
                 <div className="content2">
                     <Switch>
-                    <Route exact path="/admin_routes/manage_mock">
+                    <Route exact path="/admin_routes/manage_mock/:id">
                         <ManageMock/>
                     </Route>
-                    <Route path="/admin_routes/manage_tutor">
+                    <Route path="/admin_routes/manage_tutor/:id">
                         <ManageTutor/>
                     </Route>
-                    <Route path="/admin_routes/view_parents">
+                    <Route path="/admin_routes/view_parents/:id">
                         <ViewParents/>
                     </Route>
-                    <Route path="/admin_routes/view_appointment">
+                    <Route path="/admin_routes/view_appointment/:id">
                         <ViewAppointment/>
                     </Route>
                     </Switch>

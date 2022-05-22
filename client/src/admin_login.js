@@ -34,8 +34,20 @@ const AdminLogIn = () => {
         .then(data => {
             localStorage.setItem('token', data.token)
             if(data.message === "Success"){
-                alert("LogIn Successful...");
-                history.push("/admin_routes")
+                axios.get("http://localhost:5000/admin/users")
+                .then(newData => {
+                    console.log(newData.data)
+                    const userValues = newData.data;
+                    let id = "";
+                    const userFound = userValues.find(newUser => {
+                        if(newUser.username === logUser.username){
+                            id = newUser._id;
+                            return id = newUser._id.toString();
+                        }
+                    })
+                    alert("LogIn Successful...");
+                    history.push(`/a_view_parents/${id}`)
+                })
             } else {
                 alert(data.message)
             }

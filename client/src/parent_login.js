@@ -34,8 +34,20 @@ const Register = () => {
         .then(data => {
             localStorage.setItem('token', data.token)
             if(data.message === "Success"){
-                alert("LogIn Successful...");
-                history.push("/parent_routes")
+                axios.get("http://localhost:5000/parent/users")
+                .then(newData => {
+                    console.log(newData.data)
+                    const userValues = newData.data;
+                    let id = "";
+                    const userFound = userValues.find(newUser => {
+                        if(newUser.username === logUser.username){
+                            id = newUser._id;
+                            return id = newUser._id.toString();
+                        }
+                    })
+                    alert("LogIn Successful...");
+                    history.push(`/p_home/${id}`)
+                })
             } else {
                 alert(data.message)
             }

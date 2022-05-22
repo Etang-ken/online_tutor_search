@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import * as Yup from 'yup';
 import axios from 'axios';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { useHistory } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { Link } from 'react-router-dom';
 
 const Register = () => {
-
+    const params = useParams();
     const [form, setForm] = useState({
         username: "",
         email: "",
@@ -41,6 +41,7 @@ const Register = () => {
             )
             .then(res => {
                 if (res.status === 200){
+                    
                     const userExist = respond.data;
                     const userFound = userExist.find((user, index) => {
                         if(user.username === regUser.username || user.email === regUser.email){
@@ -93,10 +94,12 @@ const Register = () => {
         if(regUser.useAs === "Tutor"){
             axios.get("http://localhost:5000/tutor/users")
         .then(respond => {
+            console.log(respond.data)
             axios.post(
                 "http://localhost:5000/tutor/register", regUser
             )
             .then(res => {
+                console.log(respond.data)
                 if (res.status === 200){
                     const userExist = respond.data;
                     const userFound = userExist.find((user, index) => {
@@ -108,19 +111,39 @@ const Register = () => {
                     if(userFound){
                         alert("Username or E-mail already exists. Please input a new Username or E-mail...");
                     }else{
-                        alert("Successful Registration");
-                        history.push("/tutor_login")
-                    }
+                        axios.get("http://localhost:5000/tutor/users")
+                            .then(newData =>  {
+                                const userValues = newData.data;
+                                let id = "";
+                                const userFound = userValues.find(newUser => {
+                                    if(newUser.username === regUser.username && newUser.email === regUser.email){
+                                        id = newUser._id;
+                                        return id = newUser._id.toString();
+                                    }
+                                })
+                                console.log(id)
+                                history.push("/tutor_login")
+                    }).catch(err => console.log(err));
+                  }
                 }else {
+
+                   
                     Promise.reject("No way near");
                 }
+
+                //getting new db values
+                
             }).catch(err => alert('Something went wrong'))
         })
-        }
-        
+  
+
+    }
+       
     
     }
+
     
+
     useEffect(() => {
         fetch("http://localhost:5000/parent/isUserAuth", {
             headers:{

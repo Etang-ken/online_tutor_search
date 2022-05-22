@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router';
 
 const TutorNav = () => {
+    let params = useParams();
     return ( 
         <div className="tutor_nav">
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -13,25 +15,25 @@ const TutorNav = () => {
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
                     <li className="nav-item">
-                        <Link to="/tutor_routes/t_home" className="nav-link mx-1"> Home </Link>
+                        <Link to={`/t_home/${params.id}`} className="nav-link mx-1"> Home </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/tutor_routes/my_profile" className="nav-link mx-1"> My Profile </Link>
+                        <Link to={`/t_my_profile/${params.id}`} className="nav-link mx-1"> My Profile </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/tutor_routes/add_subject" className="nav-link active mx-1" aria-current="page"> Add Subject </Link>
+                        <Link to={`/t_add_subject/${params.id}`} className="nav-link active mx-1" aria-current="page"> Add Subject </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/tutor_routes/demo_request" className="nav-link mx-1"> Demo Request </Link>
+                        <Link to={`/t_demo_request/${params.id}`} className="nav-link mx-1"> Demo Request </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/tutor_routes/appoint_tutor" className="nav-link mx-1"> Appointed Tutor </Link>
+                        <Link to={`/t_appointed_tutor/${params.id}`} className="nav-link mx-1"> Appointed Tutor </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/tutor_routes/ratings" className="nav-link mx-1"> Ratings </Link>
+                        <Link to={`/t_ratings/${params.id}`} className="nav-link mx-1"> Ratings </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/tutor_routes/change_password" className="nav-link mx-1"> Change Password </Link>
+                        <Link to={`/t_change_password/${params.id}`} className="nav-link mx-1"> Change Password </Link>
                     </li>
                     
                 </ul>

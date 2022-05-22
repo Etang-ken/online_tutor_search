@@ -1,8 +1,10 @@
 import React,{ useState, useEffect } from 'react';
 import axios from "axios";
 import { Link, useParams, useHistory } from "react-router-dom";
+import AppointTutor from './appoint_tutor';
 
-const MyProfile = () => {
+const TutorInfo = () => {
+
     const params = useParams();
     const history = useHistory();
 
@@ -11,6 +13,11 @@ const MyProfile = () => {
     const handleButtonClick = () => {
         history.go(-1);
     }
+
+    
+    
+       
+        
 
     useEffect(() => {
         async function getTutors() {
@@ -33,17 +40,20 @@ const MyProfile = () => {
     if(!user){
         return null;
     }
-    // console.log(user.username, user.location)
+    
+    
+    // const bookTutor = (tuto) => {
+    //     user.bookTutor = user.;
+    //     console.log(user)
+    // }
+    // const tutor = user;
     return ( 
-        <div className="my_profile">
+        <div className="tutor_details">
+            {/* {window.location.href.includes(`http://localhost:3000/p_appoint_tutor/`) && <AppointTutor tutor={bookTutor(tutor)}/>} */}
             
-            {/* {window.location.href === `http://localhost:3000/t_my_profile/${params.id}` && <><div className='border border-0 py-2 px-3 bg-dark col-3'><h4 className="p-3 text-white">User: {user.username}</h4></div>} */}
-             <Link to={`/update_profile/${params.id}`}>
-            <button className="btn border border-0 py-2 px-3 bg-secondary text-white search-icon float-end me-5">Update Profile</button>
-            
-            </Link>
+      
 
-            {/* {window.location.href === `http://localhost:3000/p_tutor_info/${params.id}` && <><button onClick={handleButtonClick} className="btn border border-0 py-2 px-3 bg-secondary text-white search-icon float-start ms-5 my-4">Back</button></>} */}
+            {window.location.href === `http://localhost:3000/p_tutor_details/${params.id}` && <><button onClick={handleButtonClick} className="btn border border-0 py-2 px-3 bg-secondary text-white search-icon float-start ms-5 my-4">Back</button></>}
             <br /><br />
 
             <table className="table table-striped table-hover">
@@ -108,7 +118,7 @@ const MyProfile = () => {
                         <td colSpan='2'>${user.pricePerHour}</td>
                     </tr>
                     <tr>
-                        <th className='table-active' scope='row'>Platforn Choice</th>
+                        <th className='table-active' scope='row'>Platform Choice</th>
                         <td colSpan='2'>{user.platform}</td>
                     </tr>
                     <tr>
@@ -118,10 +128,10 @@ const MyProfile = () => {
                 </tbody>
             </table>
 
-            {/* {window.location.href === `http://localhost:3000/p_tutor_info/${params.id}` && <div className='d-flex justify-content-end'><Link className="btn btn-success p-2 mt-2 mb-4 me-5" to='/'>Book Tutor</Link></div>} */}
+            <div className='float-end'><Link className="btn btn-success p-2 mt-2 mb-4 me-5" to={`/p_book_tutor/${params.id}`}>Book Tutor</Link></div>
             
         </div> 
      );
 }
  
-export default MyProfile;
+export default TutorInfo;

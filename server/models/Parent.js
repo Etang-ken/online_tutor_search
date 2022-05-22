@@ -16,7 +16,10 @@ const parentSchema = mongoose.Schema({
     useAs:{
         type: String,
         required: true
-    }
+    },
+    booked: [{
+        type: String
+    }]
 }, {timestamps: true})
 
 const Parent = mongoose.model("parent", parentSchema)
