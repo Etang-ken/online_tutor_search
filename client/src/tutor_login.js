@@ -4,6 +4,13 @@ import axios from 'axios';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useParams, useHistory } from "react-router";
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+    faArrowRightLong,
+    faCheckCircle,
+    faEye,
+    faEyeSlash
+ } from '@fortawesome/free-solid-svg-icons';
 
 const TutorLogIn = () => {
 
@@ -52,8 +59,14 @@ const TutorLogIn = () => {
                             return id = newUser._id.toString();
                         }
                     })
-                    alert("LogIn Successful...");
-                    history.push(`/t_my_profile/${id}`)
+                    async function myTime() {
+                        history.push(`/t_my_profile/${id}`)
+                        // alert("LogIn Successful...");
+                    }
+                    const over = document.getElementById("overflow-color");
+                    over.classList.remove("dis-none");
+                    setTimeout(myTime, 4000)
+                    
                 })
                 
                 
@@ -77,72 +90,107 @@ const TutorLogIn = () => {
     }, [])
 
     return ( 
-        <div className="form-wrapper tutor_login">
-                <div className="row head_div">
-                <div className="mx-0 px-0 mt-2"> <h3 className="display-5 text-dark text-center admin_login_head">
-                Tutor LogIn Form
-                </h3></div>
-                </div>
+        <div className="form-wrapper parent_login container mt-4">
 
-                <div className="signup_box">
-                    <h4 className="display-7 pt-5">Tutor</h4>
-                    <br/>
-
-                <Formik initialValues={form} onSubmit={onSubmit} enableReinitialize validationSchema={validationSchema}>
-                    <Form className="admin_login_form">  
-
-                            <Field 
-                            name="username" 
-                            type="text" 
-                            className="pl-2 input_forms" 
-                            placeholder="Username..." />
-                            <ErrorMessage 
-                            name="username" 
-                            className="d-block invalid-feedback" 
-                            component="span" />
+                <div className="signup_box row">
+                    <div className="col-sm-5">
+                        <h5 className='text-end me-5 mt-3'><img src="" alt="" /><strong>Tuton</strong></h5>
                         
+                        <h4 className="signup_text text-start">
+                            <strong>
+                                Sign In as Tutor
+                            </strong>
+                        </h4>
                         
-                            <Field 
-                            name="password" 
-                            type="password" 
-                            className="mt-4 pl-2 input_forms" 
-                            placeholder="Password..."
-                            />
-                            <ErrorMessage 
-                            name="password" 
-                            className="d-block invalid-feedback" 
-                            component="span" />
-                            <br /><br />
+                        <p className="google p-1 mb-2">
+                            <Link to="#">
+                                <img src={require('./assets/google.png')} alt="" className='googleimg text-start'/>
+                                <span className='ms-5 text-start'>
+                                    Continue with Google
+                                </span>
+                            </Link>
+                        </p>
+                        <p className='p_line'>Or</p>
+                        <br/>
 
+
+                        <Formik initialValues={form} onSubmit={onSubmit} enableReinitialize validationSchema={validationSchema}>
+                            <Form className='ms-4 text-center'>  
+
+                                <p className='m-0 text-start'><label htmlFor="username">Username</label></p>
+                                <Field 
+                                name="username" 
+                                type="text" 
+                                className="py-2 input_forms" 
+                                placeholder="Username..." />
+                                <ErrorMessage 
+                                name="username" 
+                                className="d-block invalid-feedback" 
+                                component="span" /><br />
                             
-                    
+                            <p className='m-0 text-start'><label htmlFor="username">Password</label></p>
+                                <Field 
+                                id="password"
+                                name="password" 
+                                type="password" 
+                                className=" py-2 input_forms" 
+                                placeholder="Password..."
+                                /> 
+                                {/* <span id="togglePassword" className='eye-icon'><FontAwesomeIcon icon={faEye} /></span> */}
+                               <span id="togglePassword" className='eye-icon'><FontAwesomeIcon icon={faEyeSlash} /></span>
+                                <ErrorMessage 
+                                name="password" 
+                                className="d-block invalid-feedback" 
+                                component="span" />
+                                <br />
 
-                        <input type="submit" value="Log In" className="mt-4 p-2 px-3 submit_button text-primary"/>
-                        <br /><br />
-                    </Form>
-                </Formik>
+                                
+                        
 
-                <div className="row">
-                                <div className="col-sm-1">
-                                    
-                                </div>
+                                <input type="submit" value="Sign In" className="submit p-2 mt-4 ms-2"/>
+                                <br /><br />
+                            </Form>
+                        </Formik>
 
-                                <div className="col-sm-6 text-left option_buttons">
-                                    <Link to="#" className="btn button-link text-left text-primary p-3 px-4">
-                                        Forgotten Password?
-                                    </Link>
-                                </div>
+                        
+                            <div className="text-center">
+                            <p className='text-center text-secondary account_v'>
+                                Don't have an account? 
+                                <Link to='/register' className='signin ms-1'> 
+                                Sign Up
+                                </Link>
+                                </p>
+                            
+                                <Link to='#' className='forgot-password'> 
+                                Forgot Password?
+                                </Link><br />
 
-                    <div className="col-sm-4 text-left option_buttons">
-                        <Link to="/register" className="btn button-link text-left text-primary p-3 px-4">
-                            Sign Up
-                        </Link>
+                                <Link to='/parent_login' className='btn submit2 p-2 mt-4 ms-2'> 
+                                Sign In as Parent <FontAwesomeIcon icon={faArrowRightLong} />
+                                </Link>
+                            </div>
+                                
+                            
+                        
                     </div>
 
-            </div>
-                <br/><br/>
+                
+                <div className="col-sm-7">
+                    <div className="imagetext">
+                        <h1>Welcome to <span className='tuton'>Tuton</span></h1>
+                        <p>A platform for parents/student to get the best tutors in<br /> the country. </p>
+                    </div>
+                    <img src={require('./assets/login2.jpg')} alt="" className='image-style ms-5' />
+                </div> 
+                
+                </div>
 
-                <div><Link to="/" className="back_icon"><i className="far fa-arrow-alt-circle-left delete"></i> Back</Link></div>
+                <div id="overflow-color" className="row text-center dis-none">
+                    <div className="text">
+                        Login Successful <br /><br /><br />
+                        <FontAwesomeIcon icon={faCheckCircle} className="login-font"/>
+                    </div>
+                    <div className="background mt-4"></div>
                 </div>
         </div>
     )

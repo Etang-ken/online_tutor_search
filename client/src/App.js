@@ -62,32 +62,87 @@ function App() {
             <UpdateProfile />
           </Route>
         <Route path="/t_my_profile/:id">
-            <TutorNav/>
-            <MyProfile/>
+            <div className="row">
+              <div className="col-sm-2">
+                <TutorNav/>
+              </div>
+            
+              <div className="col-sm-10">
+                <MyProfile/>
+              </div>
+            </div>
           </Route>
+
         <Route  path="/t_home/:id">
-          <TutorNav/>
-          <TutorHome/>
+            <div className="row">
+              <div className="col-sm-2">
+                <TutorNav/>
+              </div>
+            
+              <div className="col-sm-10">
+                <TutorHome/>
+              </div>
+            </div>
         </Route>
+
         <Route path="/t_add_subject/:id">
-            <TutorNav/>
-            <AddSubject/>
+            <div className="row">
+              <div className="col-sm-2">
+                <TutorNav/>
+              </div>
+            
+              <div className="col-sm-10">
+                <AddSubject/>
+              </div>
+            </div>
         </Route>
+
         <Route path="/t_demo_request/:id">
-            <TutorNav/>
-            <DemoRequest/>
+            <div className="row">
+              <div className="col-sm-2">
+                <TutorNav/>
+              </div>
+            
+              <div className="col-sm-10">
+                <DemoRequest/>
+              </div>
+            </div>
         </Route>
+
         <Route path="/t_appointed_tutor/:id">
-            <TutorNav/>
-            <AppointedTutor/>
+            <div className="row">
+              <div className="col-sm-2">
+                <TutorNav/>
+              </div>
+            
+              <div className="col-sm-10">
+                <AppointedTutor/>
+              </div>
+            </div>
         </Route>
+
         <Route path="/t_ratings/:id">
-            <TutorNav/>
-            <TutorRatings/>
+            <div className="row">
+              <div className="col-sm-2">
+                <TutorNav/>
+              </div>
+            
+              <div className="col-sm-10">
+                <TutorRatings/>
+              </div>
+            </div>
         </Route>
+
         <Route path="/t_change_password/:id">
-              <TutorNav/>
-            <ChangePassword/>
+            <div className="row">
+              <div className="col-sm-2">
+                <TutorNav/>
+              </div>
+            
+              <div className="col-sm-10">
+                <ChangePassword/>
+              </div>
+            </div>
         </Route>
           
 

@@ -155,184 +155,113 @@ const Register = () => {
     }, [])
 
     return ( 
-        <div className="form-wrapper register">
-            <div className="row head_div">
-                <div className="mx-0 px-0 mt-2"> <h3 className="display-5 text-dark text-center admin_login_head">
-                SignUp Form 
-                </h3></div>
+        <div className="form-wrapper">
+
+            <div className="container register mt-4">
+
+                <div className="row">
+                {/* left side */}
+                <div className="col-sm-7">
+                    <div className="imagetext">
+                        <h1>Welcome to <span className='tuton'>Tuton</span></h1>
+                        <p>A platform for parents/student to get the best tutors in<br /> the country. </p>
+                    </div>
+                    <img src={require('./assets/7001.jpg')} alt="" className='image-style' />
                 </div>
 
-                <div className="signup_box">
-                    <h4 className="display-7 pt-5">Sign Up</h4>
+                {/* right side */}
+                <div className="col-sm-5">
+                <div className="signup_box m-0">
+                    <h5 className='text-end me-5 mt-3'><img src="" alt="" /><strong>Tuton</strong></h5>
+                
+                    <h3 className="signup_text text-start">
+                        <strong>
+                            Sign Up
+                        </strong>
+                    </h3>
+                    <p className='text-start ms-4 text-secondary account_v'>
+                        Already have an account? 
+                        <Link to='/parent_login' className='signin ms-1'> 
+                        Sign In
+                        </Link>
+                    </p>
+                    <p className="google p-1 mb-2">
+                        <Link to="#">
+                            <img src={require('./assets/google.png')} alt="" className='googleimg'/>
+                            <span className='ms-5 text-center'>
+                                Sign Up with Google
+                            </span>
+                        </Link>
+                    </p>
+                    <p className='p_line'>Or</p>
                     <br/>
 
                 <Formik initialValues={form} onSubmit={onSubmit} enableReinitialize validationSchema={validationSchema}>
-                    <Form className="admin_login_form">
-
+                    <Form className='ms-4'>
+                            <label htmlFor="username">Username</label><br />
                             <Field 
                             name="username" type="text" 
-                            className="pl-2 input_forms" 
-                            placeholder="Full Names..." />
+                            className="input_forms py-2" 
+                            placeholder="Username..." />
                             <ErrorMessage 
                             name="username" 
-                            className="d-block invalid-feedback" 
-                            component="span" />
+                            className="d-block invalid-feedback error-message" 
+                            component="span" /> <br />
                         
-
+                            <label htmlFor="email">E-mail</label><br />
                             <Field 
                             name="email" 
                             type="text" 
-                            className="mt-5 pl-2 input_forms" 
+                            className="input_forms py-2" 
                             placeholder="E-mail..." />
                             <ErrorMessage 
                             name="email" 
-                            className="d-block invalid-feedback" 
-                            component="span" />
+                            className="d-block invalid-feedback error-message" 
+                            component="span" /> <br />
                         
-                        
+                            <label htmlFor="password">Password</label><br />
                             <Field 
                             name="password" 
                             type="password" 
-                            className="mt-5 pl-2 input_forms" 
+                            className="input_forms py-2" 
                             placeholder="Password..."
                             />
                             <ErrorMessage 
                             name="password" 
-                            className="d-block invalid-feedback" 
+                            className="d-block invalid-feedback error-message" 
                             component="span" />
-                            <br /><br />
+                            <br />
 
-                            <h3>Register as: </h3>
-                            <Field name="useAs" as="select">
-                                <option value="">Choose...</option>
+                            <label>Register As: </label>
+                            <Field name="useAs" as="select" className="py-2">
+                                <option value="" disabled>Choose...</option>
                                 <option value="Admin">Admin</option>
                                 <option value="Parent">Parent</option>
                                 <option value="Tutor">Tutor</option>
                             </Field>
-                            <br /><br />
+                            <ErrorMessage 
+                            name="select" 
+                            className="d-block invalid-feedback error-message" 
+                            component="span" />
+                            <br />
                     
 
-                        <input type="submit" value="Register" className="mt-4 p-2 px-3 submit_button text-primary"/>
-                        <br /><br />
+                        <input type="submit" value="Register" className="submit p-2 mt-4 ms-3"/>
+                        <br />
                     </Form>
                 </Formik>
 
-                <div className="row">
-                        <div className="col-sm-1">
-                            
-                        </div>
-
-                        <div className="col-sm-6 text-left option_buttons">
-                            <Link to="#" className="btn button-link text-left text-primary p-3 px-4">
-                                Forgotten Password?
-                            </Link>
-                        </div>
-
-                        <div className="col-sm-4 text-left option_buttons">
-                            <Link to="/" className="btn button-link text-left text-primary p-3 px-4">
-                                Already Have an Account?
-                            </Link>
-                        </div>
-
-                </div>
+               
                     <br/>
 
-                    <div><Link to="/" className="back_icon"><i className="far fa-arrow-alt-circle-left delete"></i> Back</Link></div>
                 </div>
+                </div>
+                </div>
+            </div>
+
+                
         </div>
     )
 };
 
 export default Register;
-//         <div className="register">
-//             <div className="row head_div">
-//                 <div className="mx-0 px-0 mt-2"> <h3 className="display-5 text-dark text-center admin_login_head">
-//                 SignUp Form</h3></div>
-//                 </div>
-
-//                 <div className="signup_box">
-//                     <h4 className="display-7 pt-5">Sign Up</h4>
-//                     <br/>
-//                     <form onSubmit={onSubmit} className="admin_login_form">
-
-//                         <input 
-//                         type="text" 
-//                         className="pl-2 input_forms" 
-//                         placeholder="Full Names..."
-//                         id="name"
-//                         value={form.name}
-//                         onChange={(e) => updateForm({ name: e.target.value })} 
-//                         />
-
-                        
-//                         <input 
-//                         type="email" 
-//                         name="username" 
-//                         className="mt-5 pl-2 input_forms" 
-//                         placeholder="E-mail..."
-//                         id="email"
-//                         value={form.email}
-//                         onChange={(e) => updateForm({ email: e.target.value })} 
-//                         />
-                        
-//                         <br/><br/>
-                        
-//                         <input 
-//                         type="password" 
-//                         className="mt-4 pl-2 input_forms" 
-//                         placeholder="Password..."
-//                         id="password"
-//                         value={form.password}
-//                         onChange={(e) => updateForm({ password: e.target.value })} 
-//                         />
-
-//                         <br/><br/>
-//                         {/* <input 
-//                         type="password" 
-//                         className="my-4 pl-2 input_forms" 
-//                         placeholder="Confirm Password..."
-//                         /> */}
-
-//                         <br />
-//                         <h3>Register as: </h3>
-//                         <select name="select" id="select" onChange={(e) => updateForm({ useAs: e.target.value})}>
-//                             <option value="">Choose...</option>
-//                             <option value="Admin">Admin</option>
-
-//                             <option value="Parent">Parent</option>
-                            
-//                             <option value="Tutor">Tutor</option>
-//                         </select>
-
-//                         <br/><br />
-//                         <input type="submit" value="LogIn" className="mt-4 p-2 px-3 submit_button text-primary"/>
-//                     </form>
-//                         <br/>
-//                     <div className="row">
-//                         <div className="col-sm-1">
-                            
-//                         </div>
-
-//                         <div className="col-sm-6 text-left option_buttons">
-//                             <Link to="#" className="btn button-link text-left text-primary p-3 px-4">
-//                                 Forgotten Password?
-//                             </Link>
-//                         </div>
-
-//                         <div className="col-sm-4 text-left option_buttons">
-//                             <Link to="/" className="btn button-link text-left text-primary p-3 px-4">
-//                                 Already Have an Account?
-//                             </Link>
-//                         </div>
-
-//                 </div>
-//                     <br/>
-
-//                     <div><Link to="/" className="back_icon"><i className="far fa-arrow-alt-circle-left delete"></i> Back</Link></div>
-//                 </div>
-
-//         </div>
-//      );
-// }
- 
-// export default Register;

@@ -1,9 +1,10 @@
-.App{
+/* .App{
   
-}
+} */
 .home{
   background: url(assets/teacher.jpg);
-  font-family: Arial;
+}
+  /* font-family: Arial;
   background-position: center;
   background-repeat: no-repeat;
   bottom: 0px;
@@ -50,12 +51,448 @@
   bottom: 0;
   height: 100%;
   width: 100%;
+} */
+
+/* register */
+body {
+  background-color: rgb(226, 242, 255);
+  font-family:Arial;
+  text-align: left;
+}
+.register{
+  max-width: 80%;
+  height: 600px auto;
+  background: white;
+  /* margin: 0 auto; */
+  border-radius: 27px;
+  box-shadow: 1px 1px 10px rgb(196, 211, 238);
+}
+.register .image-style{
+  height: 600px;
+  width: 100%;
+  margin-left: -12px;
+  border-radius: 27px 0px 0px 27px;
+
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-name: slideFromLeft;
+}
+@keyframes slideFromLeft {
+  0% {
+    transform: translateX(-600px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.register .imagetext{
+  position: absolute;
+  padding-top: 20px;
+  padding-left: 30px;
+  
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-name: slideFromTop;
+}
+.register .imagetext h1{
+  font-weight: 750;
+}
+.register .imagetext p{
+  margin-top: -10px;
+  font-size: 13px;
+}
+.register .imagetext .tuton{
+  color: #3B75C9;
+}
+
+@keyframes slideFromTop {
+  0% {
+    transform: translateY(-300px);
+    opacity: 0 ;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.register .signup_box{
+  max-width: 100%;
+  height: 100%;
+  border-radius: 0px 27px 27px 0px;
+
+  animation-duration: 3s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-name: fadeIn;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.register .account_v{
+  font-size: 10.5px;
+  margin-top:-10px;
+}
+.register .signin{
+  font-size: medium;
+  text-decoration: none;
+  font-weight: bold;
+  color: #5f97ecd5;
+}
+.register .google{
+  border: 1px solid rgb(234, 243, 250);
+  width: 75%;
+  border-radius: 7px;
+  margin: 0 auto;
+}
+.register .google a{
+  color: black;
+  text-decoration: none;
+  font-size: small;
+}
+.register .googleimg{
+  height: 30px;
+  width: 30px;
+}
+.register .p_line{
+  overflow: hidden;
+  text-align: center;
+  font-size: smaller;
+  color: #5f97ecd5;
+}
+  .register .p_line:before, .register .p_line:after{
+    background-color: #8b8b8bd5;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+  }
+  .register .p_line:before{
+    right: 0.5em;
+    margin-left: -50%;
+  }
+  .register .p_line:after{
+    left: 0.5em;
+    margin-right: -50%;
+  }
+.register form{
+  margin-top: -50px;
+}
+  .register form label{
+  font-size: 13px;
+  padding-top: 20px;
+}
+.register form input::placeholder{
+  font-size: 13px;
+  color: rgb(177, 177, 177);
+  padding-left: 15px;
+}
+.register form input, .register form select{
+  width: 85%;
+  border-radius: 7px;
+  border: 0px;
+  box-shadow: 1px 1px 3px rgb(188, 208, 245);
+}
+.register .error-message{
+  width: 85%;
+}
+.register .submit{
+  background-color: #5f97ecd5;
+  color: white;
+  font-weight: 600;
+  width: 75%;
 }
 
 
+/* parent_login */
+.parent_login{
+  max-width: 80%;
+  height: 600px auto;
+  background: white;
+  /* margin: 0 auto; */
+  border-radius: 27px;
+  box-shadow: 1px 1px 10px rgb(196, 211, 238);
+}
+.parent_login .image-style{
+  height: 600px;
+  width: 100%;
+  border-radius: 0px 27px 27px 0px;
+
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-name: slideFromLeft;
+}
+@keyframes slideFromLeft {
+  0% {
+    transform: translateX(-600px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.parent_login .imagetext{
+  position: absolute;
+  right: 8%;
+  padding-top: 20px;
+  padding-right: 30px;
+  
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-name: slideFromTop;
+}
+.parent_login .imagetext h1{
+  font-weight: 750;
+}
+.parent_login .imagetext p{
+  margin-top: -10px;
+  font-size: 13px;
+}
+.parent_login .imagetext .tuton{
+  color: #3B75C9;
+}
+
+@keyframes slideFromTop {
+  0% {
+    transform: translateY(-300px);
+    opacity: 0 ;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.parent_login .signup_box{
+  max-width: 100%;
+  height: 100%;
+  border-radius: 0px 27px 27px 0px;
+
+  animation-duration: 3s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-name: fadeIn;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.parent_login .account_v{
+  font-size: 10.5px;
+  margin-top:-10px;
+}
+.parent_login .signin{
+  font-size: medium;
+  text-decoration: none;
+  font-weight: bold;
+  color: #5f97ecd5;
+}
+.parent_login .forgot-password{
+  font-size: small;
+  text-decoration: none;
+  font-weight: bold;
+  color: #5f97ecd5;
+}
+.parent_login .google{
+  border: 1px solid rgb(234, 243, 250);
+  width: 75%;
+  border-radius: 7px;
+  margin: 0 auto;
+}
+.parent_login .google a{
+  color: black;
+  text-decoration: none;
+  font-size: small;
+}
+.parent_login .googleimg{
+  height: 30px;
+  width: 30px;
+}
+.parent_login .p_line{
+  overflow: hidden;
+  text-align: center;
+  font-size: smaller;
+  color: #5f97ecd5;
+}
+  .parent_login .p_line:before, .parent_login .p_line:after{
+    background-color: #8b8b8bd5;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+  }
+  .parent_login .p_line:before{
+    right: 0.5em;
+    margin-left: -50%;
+  }
+  .parent_login .p_line:after{
+    left: 0.5em;
+    margin-right: -50%;
+  }
+.parent_login form{
+  margin-top: -50px;
+}
+  .parent_login form label{
+  font-size: 13px;
+  padding-top: 20px;
+  margin-left: 30px;
+}
+.parent_login form input::placeholder{
+  font-size: 13px;
+  color: rgb(177, 177, 177);
+  padding-left: 15px;
+}
+.parent_login form input, .parent_login form select{
+  width: 85%;
+  border-radius: 7px;
+  border: 0px;
+  box-shadow: 1px 1px 3px rgb(188, 208, 245);
+}
+.parent_login .eye-icon{
+  position: absolute;
+  margin-left: -25px;
+  margin-top: 10px;
+  color: #8d8d8d;
+}
+.parent_login .submit{
+  background-color: #5f97ecd5;
+  color: white;
+  font-size: small;
+  font-weight: 600;
+  width: 75%;
+}
+.parent_login .submit2{
+  background-color: #E1F5FB;
+  color: black;
+  font-size: small;
+  font-weight: 600;
+  width: 45%;
+  border-radius: 10px;
+}
+.parent_login .background{
+  background-color: rgba(59, 117, 201, 1);
+  color: white;
+  position: absolute;
+  height: 600px;
+  max-width: 81%;
+  margin: 0 auto;
+  border-radius: 27px;
+  top: 0;
+
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-name: rotat;
+}
+.parent_login .login-font{
+  color: white;
+  position: absolute;
+  border-radius: 27px; 
+  top: 40%;
+  left: 46%;
+  font-size: 100px;
+  z-index: 1;
+}
+.parent_login .text{
+  color: white;
+  position: absolute; 
+  top: 40%;
+  left: 0;
+  font-size: small;
+  z-index: 1;
+
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+  animation-delay: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+  animation-name: fall;
+}
+
+@keyframes rotat {
+  0% {
+    transform: rotateY(180deg);
+    opacity: 0 ;
+  }
+  100% {
+    transform: rotateY(360deg);
+    opacity: 1;
+  }
+}
+@keyframes fall {
+  0% {
+    transform: translateY(-300px);
+    opacity: 0 ;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.parent_login .dis-none{
+  display: none;
+}
+
+
+/* request_demo */
+.view_tutors .search-icon{
+  color: #7a7a7a;
+  margin-left: -22px;
+}
+
+.nav_side {
+  position: fixed;
+  width: 210px;
+  height: 100%;
+  background: black;
+}
+
+
+
+
+
+
+
+
+/* tutor */
+
+
+/* 
 /* admin login styling*/
 
-.admin_login_head{
+/* .admin_login_head{
   border: 2px solid rgb(39, 36, 36);
   display: inline-block;
   text-align: center;
@@ -114,7 +551,7 @@
 .submit_button{
   border:0px;
   border-radius: 3px;
-  /* color: rgb(12, 177, 216); */
+  color: rgb(12, 177, 216);
   box-shadow: 0px 4px 6px gray;
 }
 .back_icon{
@@ -133,14 +570,14 @@
   border: 0px;
 }
 
-/* admin_dashboard */
+admin_dashboard
 ul .active{
   font-weight: bold;
   background: white;
   color: black !important;
 }
 
-/* parent_dashboard */
+parent_dashboard
 .parent_nav ul .active{
   font-weight: bold;
   background: white;
@@ -169,7 +606,7 @@ ul .active{
   text-align: left;
 }
 
-/* tutor_dashboard */
+tutor_dashboard
 .tutor_d ul .active{
   font-weight: bold;
   background: white;
@@ -217,4 +654,4 @@ ul .active{
    padding: 8px;
    padding-top: 5px;
    padding-bottom: 5px;
-}
+} */

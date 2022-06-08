@@ -1,12 +1,16 @@
 import React, {  useState, useEffect } from "react";
 import { Link,useParams } from "react-router-dom";
 import TutorInfo from "./tutor_details";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { 
+    faSearch 
+} from "@fortawesome/free-solid-svg-icons";
 
 const Tutors = (props) => (
     <tr>
         <td>{props.tutor.fullnames}</td>
         <td>{props.tutor.subject}</td>
-        <td>{props.tutor.location}</td>
+        <td>{props.tutor.location}</td> 
         <td>${props.tutor.pricePerHour}</td>
         <td>{props.tutor.email}</td>
         <td>{props.tutor.yearsExperience}</td>
@@ -22,9 +26,16 @@ const Tutors = (props) => (
 const ViewTutor = () => {
 
     const [tutors, setTutors] = useState([]);
+    const [searchItem, setSearchItem] = useState('')
 
+
+    const getInput = (e) => {
+        // console.log(e.target.value);
+        setSearchItem(e.target.value)
+    }
+
+    // console.log(getInput)
     const params = useParams();
-    console.log("params" +params.id);
 
     useEffect(() => {
         async function getTutors() {
@@ -44,21 +55,52 @@ const ViewTutor = () => {
         return;
     }, [tutors.length]);
 
+    // function tutorList() {
+    //     return tutors.map((tutor) => {
+    //         return (
+    //             <Tutors tutor={tutor} key={tutor._id} />
+    //         );
+    //     });
+    // }
+
     function tutorList() {
-        return tutors.map((tutor) => {
-            console.log(tutor._id);
+        return tutors.filter(tutor => { 
+            return (tutor
+                .location
+                .toLowerCase()
+                .includes(searchItem
+                    .toLowerCase()
+                    )
+                    ||
+                    tutor
+                .subject
+                .toLowerCase()
+                .includes(searchItem
+                    .toLowerCase()
+                    )
+                )
+            })
+                .map((filteredTutor) => {
             return (
-                <Tutors tutor={tutor} key={tutor._id} />
+                <Tutors tutor={filteredTutor} key={filteredTutor._id} />
             );
         });
     }
 
 
     return ( 
-        <div className="request_demo">
+        <div className="view_tutors">
             {/* {window.location.href === `http://localhost:3000/p_tutor/${params.id}` && <TutorInfo param={params.id} />} */}
               <div className="parent_d">
               <br /><h3>Available Tutors...</h3>
+              <input 
+              type="search" 
+              name="search-bar" 
+              id="search" 
+              placeholder="Subject or Location..."
+              onChange={getInput}
+              />
+              {searchItem === "" && <span><FontAwesomeIcon icon={faSearch} className="search-icon"/></span>}
                 <table className="mt-5">
                     <thead>
                     <tr className="heads">

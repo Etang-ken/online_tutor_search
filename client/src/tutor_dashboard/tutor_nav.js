@@ -1,50 +1,57 @@
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { 
+    faHome,
+    faUser,
+    faAdd,
+    faPlayCircle,
+    faBook,
+    faLock,
+    faStar
+ } from '@fortawesome/free-solid-svg-icons';
 
 const TutorNav = () => {
     let params = useParams();
+
     return ( 
-        <div className="tutor_nav">
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div className="container-fluid">
-            <Link to="/" className="navbar-brand mx-5">Tuton</Link>
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#parentNavbar" arial-controls="parentNavbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="parentNavbar">
-                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        <div className="container-fluid overflow-hidden nav_side">
+            <nav>
+                <div>
+                <ul className="navbar-nav me-auto mt-5 mb-lg-0">
 
                     <li className="nav-item">
-                        <Link to={`/t_home/${params.id}`} className="nav-link mx-1"> Home </Link>
+                        <span></span>
+                        <Link to={`/t_home/${params.id}`} className="nav-link mx-1"> <FontAwesomeIcon icon={faHome} className="me-1"/> Home </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to={`/t_my_profile/${params.id}`} className="nav-link mx-1"> My Profile </Link>
+                        <span></span>
+                        <Link to={`/t_my_profile/${params.id}`} className="nav-link mx-1"> <FontAwesomeIcon icon={faUser} className="me-1"/> My Profile </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to={`/t_add_subject/${params.id}`} className="nav-link active mx-1" aria-current="page"> Add Subject </Link>
+                        <span></span>
+                        <Link to={`/t_add_subject/${params.id}`} className="nav-link active mx-1" aria-current="page"> <FontAwesomeIcon icon={faAdd} className="me-1"/> Add Subject </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to={`/t_demo_request/${params.id}`} className="nav-link mx-1"> Demo Request </Link>
+                        <span></span>
+                        <Link to={`/t_demo_request/${params.id}`} className="nav-link mx-1"> <FontAwesomeIcon icon={faPlayCircle} className="me-1"/> Demo Lectures </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to={`/t_appointed_tutor/${params.id}`} className="nav-link mx-1"> Appointed Tutor </Link>
+                        <span></span>
+                        <Link to={`/t_appointed_tutor/${params.id}`} className="nav-link mx-1"> <FontAwesomeIcon icon={faBook} className="me-1"/> Appointed Tutor </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to={`/t_ratings/${params.id}`} className="nav-link mx-1"> Ratings </Link>
+                        <span></span>
+                        <Link to={`/t_ratings/${params.id}`} className="nav-link mx-1"> <FontAwesomeIcon icon={faStar} className="me-1"/> Ratings </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to={`/t_change_password/${params.id}`} className="nav-link mx-1"> Change Password </Link>
+                        <span></span>
+                        <Link to={`/t_change_password/${params.id}`} className="nav-link mx-1"> <FontAwesomeIcon icon={faLock} className="me-1"/> Change Password </Link>
                     </li>
-                    
-                </ul>
 
-                <form className="d-flex" action="">
-                    <input className="form-control me-2" type="search" placeholder="Search" arial-label="Search"/>
-                    <button className="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
+                    </ul>
+                </div>
+            </nav>
         </div>
      );
 }
