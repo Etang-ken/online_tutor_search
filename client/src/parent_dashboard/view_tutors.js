@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
     faSearch 
 } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 
 const Tutors = (props) => (
     <tr>
@@ -26,7 +27,9 @@ const Tutors = (props) => (
 const ViewTutor = () => {
 
     const [tutors, setTutors] = useState([]);
-    const [searchItem, setSearchItem] = useState('')
+    const [searchItem, setSearchItem] = useState('');
+    const [newTut, setNewTut] = useState([]);
+    const [user, setUser] = useState('');
 
 
     const getInput = (e) => {
@@ -38,22 +41,44 @@ const ViewTutor = () => {
     const params = useParams();
 
     useEffect(() => {
-        async function getTutors() {
-            const response = await fetch("http://localhost:5000/tutor/users");
+    
+        // async function getTutors() {
+        //     const response = await fetch("http://localhost:5000/tutor/users");
 
-            if(!response.ok) {
-                const message = `An error occured: ${response.statusText}`;
-                window.alert(message);
-                return;
-            }
+        //     if(!response.ok) {
+        //         const message = `An error occured: ${response.statusText}`;
+        //         window.alert(message);
+        //         return;
+        //     }
 
-            const tutors = await response.json();
-            setTutors(tutors);
-        }
+        //     const tutors = await response.json();
+        //     setTutors(tutors);
+        // }
 
-        getTutors();
+        // getTutors();
+
+        axios.get(`http://localhost:5000/parent/user/${params.id}`)
+        .then(output => {
+            setUser(output.data.username);
+        })
+
+        axios.get(`http://localhost:5000/admin/user/62a4e1563b511e9fe0dda81b`)
+        .then(res => {
+        const adminData = res.data.approvedTutors;
+        axios.get("http://localhost:5000/tutor/users")
+            .then( res2 => {
+                const tutorData = res2.data;
+                tutorData.forEach(tutor => {
+                    if(adminData.includes(tutor._id)){
+                        return setTutors(currentTutors =>[...currentTutors, tutor])
+                    }
+                    
+                })
+            })
+         })
+
         return;
-    }, [tutors.length]);
+    }, []);
 
     // function tutorList() {
     //     return tutors.map((tutor) => {
@@ -62,6 +87,8 @@ const ViewTutor = () => {
     //         );
     //     });
     // }
+    
+    
 
     function tutorList() {
         return tutors.filter(tutor => { 
@@ -87,12 +114,16 @@ const ViewTutor = () => {
         });
     }
 
-
+    if(!newTut){
+        return null;
+    } 
+    console.log(newTut)
     return ( 
         <div className="view_tutors">
             {/* {window.location.href === `http://localhost:3000/p_tutor/${params.id}` && <TutorInfo param={params.id} />} */}
               <div className="parent_d">
               <br /><h3>Available Tutors...</h3>
+              
               <input 
               type="search" 
               name="search-bar" 
@@ -101,8 +132,18 @@ const ViewTutor = () => {
               onChange={getInput}
               />
               {searchItem === "" && <span><FontAwesomeIcon icon={faSearch} className="search-icon"/></span>}
+
+                <table>
+                        <tbody>
+                            <tr>
+                                <td className="py-3">User</td>
+                                <td className="py-3"><h3 className="text-success display-7 text-right text-bold">{user}</h3></td>
+                            </tr>
+                        </tbody>
+                </table>
                 <table className="mt-5">
                     <thead>
+                        
                     <tr className="heads">
                         <th className="py-3">Tutor Name</th>
                         <th className="py-3">Subject</th>

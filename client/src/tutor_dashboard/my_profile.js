@@ -132,8 +132,8 @@ const MyProfile = () => {
                 <div className="col-sm-6 row">
                     <div className="col-sm-3 row m-3 pt-2 pb-5 box-3">
                             <div className="col-9">
-                                <h4>SUBJECTS</h4>
-                                <h3 className='h5'>{user.subject}</h3>
+                                <h4>SEX</h4>
+                                <h3 className='h5'>{user.sex}</h3>
                             </div>
                             <div className="col-3">
                                 <h1 className='display-3 box-logo'><FontAwesomeIcon icon={faBook} /></h1>
@@ -142,8 +142,8 @@ const MyProfile = () => {
 
                         <div className="col-sm-3 row mt-3 ms-3 mb-3 pt-2 pb-5 box-4">
                             <div className="col-9">
-                                <h4>LOCATION</h4>
-                                <h3 className='h5'>{user.location}</h3>
+                                <h4>PLATFORM CHOICE</h4>
+                                <h3 className='h5'>{user.platform}</h3>
                             </div>
                             <div className="col-3">
                                 <h1 className='display-3 box-logo'><FontAwesomeIcon icon={faMapMarkerAlt} /></h1>

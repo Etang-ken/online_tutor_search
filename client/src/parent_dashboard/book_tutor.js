@@ -58,9 +58,9 @@ const BookaTutor = () => {
     }
 
     return ( 
-        <div className="form-wrapper parent_login">
+        <div className="form-wrapper">
 
-                <div className="signup_box">
+                <div className="signup_box2">
                     <h4 className="display-7 pt-5">Book Tutor</h4>
                     <br/>
 
@@ -93,7 +93,7 @@ const BookaTutor = () => {
                                     
                             
 
-                                <input type="submit" value="Log In" className="mt-4 p-2 px-3 submit_button text-primary"/>
+                                <input type="submit" value="Book Tutor" className="mt-4 p-2 px-3 submit_button text-primary"/>
                                 <br /><br />
                             </Form>
                         </Formik>

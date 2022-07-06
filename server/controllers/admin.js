@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const User = require('../models//Admin')
+const User = require('../models/Admin')
 
 
 //get username
@@ -20,6 +20,21 @@ exports.users =  async(req, res, next)=>{
     }
     
 };
+
+//get single user
+exports.getUser = async (req, res, next) => {
+        
+    try {
+        const user = await User.findById(req.params.id);
+        res.send(user);
+    next();
+    } catch (err) {
+        return next(`There is no customer with the id ${req.params.id}`)
+            
+    }
+    
+};
+
 
 //register user
 exports.registerUser = async (req, res) => {
@@ -84,3 +99,39 @@ exports.login = (req, res) => {
         })
     })
 }
+
+exports.approvedTutors = (req, res, next) => {
+    const tutor = req.body;
+       User.findOneAndUpdate(
+        {_id: req.params.id},
+        { $addToSet: { approvedTutors : tutor.tutor }},
+        function (err, result) {
+            if(err){
+                res.send(err)
+            } else {
+                res.send(result);
+                console.log(tutor, result)
+            }
+        }
+    )
+}
+
+// exports.approvedTutor =  async (req, res, next) => {
+//     //check for json
+
+//     if(!req.is('application/json')) {
+//         return;
+//     }
+
+//     try{
+        
+//         const check = () => {
+//             return app;
+//         }
+//         const user = await User.findOneAndUpdate({ _id: req.params.id}, req.body );
+//         console.log(req.body)
+//         res.sendStatus(200);
+//     } catch (err) {
+//         return `There is no customer with the id ${req.params.id}`;
+//     }
+// };

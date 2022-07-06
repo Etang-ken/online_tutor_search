@@ -16,7 +16,14 @@ const adminSchema = mongoose.Schema({
     useAs:{
         type: String,
         required: true
-    }
+    },
+    approvedTutor:{
+        type: Boolean,
+        default: false
+    },
+    approvedTutors: [{
+        type: String
+    }]
 }, {timestamps: true})
 
 const Admin = mongoose.model("admin", adminSchema)

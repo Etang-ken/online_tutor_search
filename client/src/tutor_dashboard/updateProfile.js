@@ -83,14 +83,14 @@ const UpdateProfile = () => {
     
 
     return ( 
-        <div className="form-wrapper register">
+        <div className="form-wrapper">
             <div className="row head_div">
                 <div className="mx-0 px-0 mt-2"> <h3 className="display-5 text-dark text-center admin_login_head">
                 Update Profile
                 </h3></div>
                 </div>
 
-                <div className="signup_box">
+                <div className="signup_box2">
                     <h4 className="display-7 pt-5">Profile</h4>
                     <br/>
 
