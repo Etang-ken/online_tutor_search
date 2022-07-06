@@ -3,11 +3,11 @@
 } */
 .home{
   background: url(assets/teacher.jpg);
-}
-  /* font-family: Arial;
+  font-family: Arial;
   background-position: center;
   background-repeat: no-repeat;
-  bottom: 0px;
+  height: 650px;
+  width: auto;
 }
 .left-head{
   position: relative;
@@ -51,7 +51,7 @@
   bottom: 0;
   height: 100%;
   width: 100%;
-} */
+}
 
 /* register */
 body {
@@ -482,26 +482,21 @@ body {
 
 
 
-
-
-
-
 /* tutor */
 
 
 /* 
 /* admin login styling*/
 
-/* .admin_login_head{
+ .admin_login_head{
   border: 2px solid rgb(39, 36, 36);
   display: inline-block;
   text-align: center;
   padding: 15px;
-}
-.head_div{
+}.head_div{
   text-align: center;
 }
-.admin_box{
+/*(.admin_box{
   width: 50%;
   height: 80%;
   background: white;
@@ -509,33 +504,33 @@ body {
   margin-top: 50px;
   box-shadow: 1px 1px 15px gray;
   text-align: center;
-}
-.signup_box{
+}*/
+.signup_box2{
   width: 50%;
-  height: 700px;
+  height: 700px auto;
   background: white;
   margin: 0 auto;
   margin-top: 50px;
   box-shadow: 1px 1px 15px gray;
   text-align: center;
-}
-.update_box{
-  width: 50%;
-  height: 80%;
+} 
+/* .update_box{s
+  width: 0%;
+  height: 100% auto;
   background: white;
   margin: 0 auto;
   margin-top: 50px;
   box-shadow: 1px 1px 15px #6186a7;
   text-align: center;
-}
-.admin_box .input_forms{
+} */
+/* .admin_box .input_forms{
   width: 80%;
   border-top: 0px;
   border-left: 0px;
   border-right: 0px;
-}
+} */
 
-.signup_box .input_forms{
+.signup_box2 .input_forms{
   width: 80%;
   border-top: 0px;
   border-left: 0px;
@@ -554,35 +549,16 @@ body {
   color: rgb(12, 177, 216);
   box-shadow: 0px 4px 6px gray;
 }
-.back_icon{
-  padding-bottom: 40px;
-  text-decoration: none;
-}
-.success{
-  box-shadow: 1px 1px 10px green;
-}
-.error{
-  box-shadow: 1px 1px 10px red;
-}
 .option_buttons a{
   z-index: 1;
   box-shadow: 0px 4px 6px rgb(153, 170, 180);
   border: 0px;
 }
 
-admin_dashboard
-ul .active{
-  font-weight: bold;
-  background: white;
-  color: black !important;
-}
+/* admin_dashboard  */
 
-parent_dashboard
-.parent_nav ul .active{
-  font-weight: bold;
-  background: white;
-  color: black !important;
-}
+
+/* parent_dashboard */
 
 .parent_d table{
   width: 95%;
@@ -606,7 +582,7 @@ parent_dashboard
   text-align: left;
 }
 
-tutor_dashboard
+/* tutor_dashboard  */
 .tutor_d ul .active{
   font-weight: bold;
   background: white;
@@ -654,4 +630,4 @@ tutor_dashboard
    padding: 8px;
    padding-top: 5px;
    padding-bottom: 5px;
-} */
+}

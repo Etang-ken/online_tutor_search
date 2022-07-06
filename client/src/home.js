@@ -14,8 +14,8 @@ const Home = () => {
 
                     <div className="row">
                         <div className="col-sm-2"></div>
-                        <div className="col-sm-8"> <h3 className=" display-5 text-dark text-center mx-0 px-0 mt-5 answer">
-                            Answer Educator</h3></div>
+                        <div className="col-sm-8"> <h3 className=" display-5 text-light text-center mx-0 px-0 mt-5 answer">
+                            Online Private Tutor Finder</h3></div>
                         <div className="col-sm-2"></div>
                 </div>
             </div>
@@ -31,6 +31,12 @@ const Home = () => {
     <div className="container">
         <div className="row mt-5">
 
+        <div className="text-center buttons">
+                <Link to="/register" className="btn button-link text-center text-primary border border-dark p-3 px-5 mb-5">
+                    Register
+                </Link>
+            </div>
+            
             <div className="col-sm-4 text-center buttons">
                 <Link to="/parent_login" className="btn button-link text-center text-primary border border-dark p-3 px-4">
                     Login As Parent

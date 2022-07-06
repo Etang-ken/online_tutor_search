@@ -172,7 +172,7 @@ const Register = () => {
                 {/* right side */}
                 <div className="col-sm-5">
                 <div className="signup_box m-0">
-                    <h5 className='text-end me-5 mt-3'><img src="" alt="" /><strong>Tuton</strong></h5>
+                    <Link to='/' className="text-decoration-none text-primary"><h5 className='text-end me-5 mt-3'><img src="" alt="" /><strong>Tuton</strong></h5></Link>
                 
                     <h3 className="signup_text text-start">
                         <strong>

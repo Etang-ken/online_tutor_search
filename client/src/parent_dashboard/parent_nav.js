@@ -17,7 +17,7 @@ const ParentNav = () => {
                                 <Link to={`/p_home/${params.id}`} className="nav-link mx-1 active"> Home </Link>
                             </li>
                             <li className="nav-item">
-                                <Link to={`/p_book$demo/${params.id}`} className="nav-link mx-1"> Request a Demo and Book </Link>
+                                <Link to={`/p_booksndemo/${params.id}`} className="nav-link mx-1"> Request a Demo and Book </Link>
                             </li>
                             <li className="nav-item">
                                 <Link to={`/p_view_tutor/${params.id}`} className="nav-link mx-1"> View Tutor </Link>

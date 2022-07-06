@@ -40,7 +40,7 @@ const AppointTutor = () => {
             .then(res => {
                 console.log(res)
                 alert("Tutor successfully deleted...")
-                history.push(`/p_appoint_tutor/${params.id}`)
+                window.location.reload(true)
             })
         }
         console.log(tuto)
