@@ -32,7 +32,6 @@ const AdminLogIn = () => {
             return res.data;
         })
         .then(data => {
-            localStorage.setItem('token', data.token)
             if(data.message === "Success"){
                 axios.get("http://localhost:5000/admin/users")
                 .then(newData => {
@@ -41,12 +40,13 @@ const AdminLogIn = () => {
                     let id = "";
                     const userFound = userValues.find(newUser => {
                         if(newUser.username === logUser.username){
+                            localStorage.setItem(`${newUser._id.toString()}_token`, data.token)
                             id = newUser._id;
                             return id = newUser._id.toString();
                         }
                     })
                     alert("LogIn Successful...");
-                    history.push(`/a_view_parents/${id}`)
+                    history.push(`/a_manage_tutor/${id}`)
                 })
             } else {
                 alert(data.message)

@@ -45,7 +45,6 @@ const TutorLogIn = () => {
         })
         .then(data => {
            console.log(data)
-            localStorage.setItem('token', data.token)
             if(data.message === "Success"){
                 console.log(data)
                 axios.get("http://localhost:5000/tutor/users")
@@ -55,6 +54,7 @@ const TutorLogIn = () => {
                     let id = "";
                     const userFound = userValues.find(newUser => {
                         if(newUser.username === logUser.username){
+                            localStorage.setItem(`${newUser._id.toString()}_token`, data.token)
                             id = newUser._id;
                             return id = newUser._id.toString();
                         }
@@ -166,7 +166,7 @@ const TutorLogIn = () => {
                                 </Link><br />
 
                                 <Link to='/parent_login' className='btn submit2 p-2 mt-4 ms-2'> 
-                                Sign In as Parent <FontAwesomeIcon icon={faArrowRightLong} />
+                                Sign In as Parent / Student <FontAwesomeIcon icon={faArrowRightLong} />
                                 </Link>
                             </div>
                                 

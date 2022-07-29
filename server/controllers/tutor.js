@@ -103,6 +103,7 @@ exports.login = (req, res) => {
     })
 }
 
+
 //update
 exports.updateTutor =  async (req, res, next) => {
     //check for json

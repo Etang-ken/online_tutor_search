@@ -236,7 +236,7 @@ const Register = () => {
                             <Field name="useAs" as="select" className="py-2">
                                 <option value="" disabled>Choose...</option>
                                 <option value="Admin">Admin</option>
-                                <option value="Parent">Parent</option>
+                                <option value="Parent">Parent / Student</option>
                                 <option value="Tutor">Tutor</option>
                             </Field>
                             <ErrorMessage 

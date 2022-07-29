@@ -39,7 +39,7 @@ const Home = () => {
             
             <div className="col-sm-4 text-center buttons">
                 <Link to="/parent_login" className="btn button-link text-center text-primary border border-dark p-3 px-4">
-                    Login As Parent
+                    Login As Parent / Student
                 </Link>
             </div>
 

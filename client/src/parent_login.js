@@ -37,7 +37,6 @@ const Register = () => {
             return res.data;
         })
         .then(data => {
-            localStorage.setItem('token', data.token)
             if(data.message === "Success"){
                 axios.get("http://localhost:5000/parent/users")
                 .then(newData => {
@@ -46,6 +45,7 @@ const Register = () => {
                     let id = "";
                     const userFound = userValues.find(newUser => {
                         if(newUser.username === logUser.username){
+                            localStorage.setItem(`${newUser._id.toString()}_token`, data.token)
                             id = newUser._id;
                             return id = newUser._id.toString();
                         }
@@ -86,7 +86,7 @@ const Register = () => {
                         
                         <h4 className="signup_text text-start">
                             <strong>
-                                Sign In as Parent
+                                Sign In as Parent / Student
                             </strong>
                         </h4>
                         

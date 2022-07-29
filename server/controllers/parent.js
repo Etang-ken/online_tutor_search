@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const User = require('../models/Parent')
+const User = require('../models/Parent');
+const axios = require('axios');
 
 
 //get username
@@ -134,6 +135,15 @@ exports.removeTutor = (req, res, next) => {
         }
     )
 }
+
+exports.getBookedTutors = async (req, res, next) => {
+    const user = await User.findById(req.params.id);
+    const tutors_id = await user.booked;
+    // let tutors = [];
+    res.send(tutors_id)
+    
+    }
+
     // try{
     //     const user = await User.findOneAndUpdate({ _id: req.params.id}, req.body );
     //     res.sendStatus(200);

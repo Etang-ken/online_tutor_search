@@ -15,17 +15,20 @@ router.get("/parent/users", parentController.users);
 router.get("/parent/user/:id", parentController.getUser);
 
 //register user
-router.post("/parent/register", parentController.registerUser)
+router.post("/parent/register", parentController.registerUser);
 
 
 //log in
-router.post("/parent/login", parentController.login)
+router.post("/parent/login", parentController.login);
 
 //update parent
-router.put("/parent/update/:id", parentController.updateParent)
+router.put("/parent/update/:id", parentController.updateParent);
 
 //removee booked tutor
-router.put("/parent/remove/:id", parentController.removeTutor)
+router.put("/parent/remove/:id", parentController.removeTutor);
+
+//get all booked tutors
+router.get("/parent/bookedTutors/:id", parentController.getBookedTutors);
 
 
 
